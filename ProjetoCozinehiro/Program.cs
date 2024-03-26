@@ -1,4 +1,5 @@
-﻿using CozinheiroRpg.Componentes;
+﻿using System;
+using CozinheiroRpg.Componentes;
 
 var menuInicial = new MenuInicial();
 menuInicial.Execultar();
