@@ -1,3 +1,5 @@
+using System;
+
 namespace CozinheiroRpg.Componentes;
 
 public class TelaVitoria
