@@ -4,7 +4,7 @@ using CozinheiroRpg.Componentes;
 var menuInicial = new MenuInicial();
 menuInicial.Execultar();
 var caixaTexto = new CaixaTexto();
-var opcao = caixaTexto.Execultar(
+var opcao = caixaTexto.Executar(
                 """
                 Bem-vindo ao extraordinário evento de culinária REI DA COZINHA! Aqui, chefs renomados de todo o mundo se 
                 reúnem para descobrir QUEM É O MELHOR! Prepare-se para uma jornada gastronômica emocionante, onde cada 

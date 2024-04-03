@@ -8,7 +8,7 @@ public class CaixaMisteriosa1
     {
         var txtIngrediente = new CaixaTexto();
         var reacao = "";
-        var opcaoEscolhida = txtIngrediente.Execultar(
+        var opcaoEscolhida = txtIngrediente.Executar(
                         """
                          Olha, Olha, Olha! Sua primeira missão inicia na Itália! Com um prato que serviu de inspiração
                         para a Pizza tradicional, conseguiu adivinhar qual é? Não? Não se preocupe que eu te conto.
@@ -37,7 +37,7 @@ public class CaixaMisteriosa1
                 break;
         }
         
-        opcaoEscolhida = txtIngrediente.Execultar($"{reacao} Vamos lá, você está batento a farinha, o sal e o fermento e está jogando água. O que fará agora?", 
+        opcaoEscolhida = txtIngrediente.Executar($"{reacao} Vamos lá, você está batento a farinha, o sal e o fermento e está jogando água. O que fará agora?", 
                         "Aumenta a velocidade da batedeira e joga água aos poucos", 
                         "Diminui a velocidade da batedeira e joga toda a água", 
                         "Diminui a velocidade da batedeira e joga a água gradualmente");
@@ -49,7 +49,7 @@ public class CaixaMisteriosa1
                             0 => 2,
                             _ => 0,
             };
-            opcaoEscolhida = txtIngrediente.Execultar(
+            opcaoEscolhida = txtIngrediente.Executar(
                             "Parece que sua massa não está chegando no ponto o que você fará?",
                             "Diminuir a velocidade da batedeira e jogar a água gradualmente",
                             "Jogar mais água");
@@ -67,7 +67,7 @@ public class CaixaMisteriosa1
             _pontos += 3;
         }
         
-        opcaoEscolhida = txtIngrediente.Execultar($"{reacao} Sua massa está pronta, é hora de?", 
+        opcaoEscolhida = txtIngrediente.Executar($"{reacao} Sua massa está pronta, é hora de?", 
                         "Deixar descansar, depois colocar o recheio e por fim levar ao forno.", 
                         "Colocar o recheio e levar ao forno.");
 
