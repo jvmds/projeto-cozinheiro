@@ -15,76 +15,92 @@ public class CaixaMisteriosa2
     {
         var txtIngrediente = new CaixaTexto();
         var reacao = "";
-        var opcaoEscolhida = txtIngrediente.Execultar(
+        var opcaoEscolhida = txtIngrediente.Executar(
                         """
-                         Olha, Olha, Olha! Sua segunda missão e na Alemanha! Com um prato que serviu de inspiração
-                        para a cachorro-quente tradicional, conseguiu adivinhar qual é? Não? Não se preocupe que eu te conto.
-                        Estamos falando do Cachorro-Quente, essa delicia tem origem na região  da Alemanha, na zona de
-                        FrankFurt. Sua receita correta é feita com a salsicha alemã.
-
-                        Sua missão é criar um tradicional cachorro-quente, para isso escolha os ingredientes base.
-                        """, "batata frita e carne cozida", "Salsicha branca, Curry em pó e Pão de cachorro-quente", "Pimenta calabresa", "Pão de cachorro quente e Catchup");
+                        Hmmmm, já senti o cheiro daqui, já imaginou onde para onde nós estamos indo ?!
+                        Em Frankefurt alemanha, o famoso cachorro-quente alemão.
+                        Sua missão é criar um tradicional cachorro-quente alemão, para isso escolha os ingredientes base.
+                        """, "Pão, salsicha, molho de tomate e ketchup", "Pão de batata, feijoada e laranjada", "Salsicha,molho de tomate e batata-palha", "Frango assado e refrigerante diet,", "Pedir para algum parente cozinhar, já que não temos todos ingredientes", "Salsicha alemã, pão de cachorro de quente,molho de tomate e alho e sal");
 
         switch (opcaoEscolhida)
         {
+            case 0:
+                _pontos++;
+                reacao = "Boa escolha, mas poderia ser melhor";
+                break;
             case 1:
-                _pontos += 3;
-                reacao = "Muito Bem! Excelente escolha.";
+                reacao = "Ih rapaz, terá que voltar para faculdade de gastronomia";
                 break;
             case 2:
-                _pontos++;
-                reacao = "No limite do tradicional.";
+                _pontos += 2;
+                reacao = "Está fugindo da receita tradicional, mas podemos continuar";
                 break;
             case 3:
-                _pontos += 2;
-                reacao = "Não é excelente, mas inda é uma boa escolha!";
+                _pontos = -1;
+                reacao = "https://www.youtube.com/watch?v=qwK9o9-Hk14";
+                break;
+            case 5:
+                _pontos += 3;
+                reacao = "Descobrimos uma novo ratatouille";
                 break;
             default:
-                reacao = "Tome cuidao para não fujir da receita tradicional!";
+                _pontos = 0;
+                reacao = "https://www.youtube.com/watch?v=pnlWzrZ1iOA";
                 break;
+
+
+        }
+        if (_pontos == 0)
+        {
+            txtIngrediente.Executar($"Clique no link, {reacao} ", "Sair da tela");
+            return _pontos;
+        }
+        if (_pontos == -1)
+        {
+            txtIngrediente.Executar($"Clique no link, {reacao} ", "Sair da tela");
+            return _pontos;
         }
 
-        opcaoEscolhida = txtIngrediente.Execultar($"{reacao} Vamos lá, você está fazendo o molho do cachorro-quente, o sal e o molho de tomate e está jogando água. O que fará agora?",
-                        "Joga tudo na panela de uma vez",
-                        "Começa adorando o alho e cebola e logo em seguida acrescenta molho de tomate e esperar 10 minutos até cozinhar",
-                        "Diminui a velocidade  de produção do molho e espera fritar o alho e cebola e logo em seguida começa a cozinhar o molho pra acrescentar junto ao demais ingredientes");
+        opcaoEscolhida = txtIngrediente.Executar($"{reacao} Vamos lá, vamos cozinhar com nossos ingredientes, como devemos começar ?",
+                        "Adicionar tudo na panela e aguarda a comida ficar pronto",
+                        "Adicionar o alho com sal na panela, até ficar dourado e logo em seguida colocar a salsicha",
+                        "Começar adorando o alho e cebola, aguardar 5 minutos, acrescentar o molho de tomate e logo depois acrescentar a salsicha",
+                        "Imaginar tal preparação e aguardar");
 
-        if (opcaoEscolhida is 0 or 2)
+        if (opcaoEscolhida is 0 or 1)
         {
             _pontos += opcaoEscolhida switch
             {
+                0 => 0,
                 1 => 2,
-                _ => 0,
             };
-            opcaoEscolhida = txtIngrediente.Execultar(
-                            "Parece que seu molho está ficando ensopado, oque fará ?",
-                            "Retire um pouco do molho e deixe fevervendo no fogo baixo",
-                            "Aumente a velocidade de cozimento do molho (aumentando o fogo do fogão)"
-                            );
+            opcaoEscolhida = txtIngrediente.Executar(
+                            "Parece que sua comida não está cozinhado corretamente?",
+                            "Jogar mais água e aumentar a intensidade do fogo",
+                            "Averiguar se o fogão está ligado, diminuir a intensidade do fogo e aguardar mais 10 minutos e repetir o processo todo novamente até cozinhar",
+                            "Desisti de ser gastrônomo e vira NPC de rede socias");
 
-            if (opcaoEscolhida == 1)
+            if (opcaoEscolhida == 2)
             {
                 return 0;
             }
 
             reacao = "Ufa! Parece que você conseguiu reverter a situaçao.";
         }
-        else
+        if (opcaoEscolhida == 3)
         {
-            reacao = "Excelente! Você está indo muito bem.";
-            _pontos += 3;
+            return 0;
         }
 
-        opcaoEscolhida = txtIngrediente.Execultar($"{reacao} Seu molho está pronta, é hora de?",
-                        "Cortar os pão e colocar a salsicha com o molho.",
-                        "Deixar esfriar um pouco e deixar o molho na panela.");
+        opcaoEscolhida = txtIngrediente.Executar($"{reacao} Seu cachorro-quente está pronto, é hora de?",
+                        "Preparar e comer ",
+                        "Agradacer por não colocar fogo na cozinha");
 
         _pontos += opcaoEscolhida switch
         {
-            0 => 4,
-            _ => 2
+            0 => 2,
+            _ => 1
         };
-
         return _pontos;
     }
 }
