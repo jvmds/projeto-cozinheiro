@@ -13,6 +13,10 @@ var opcao = caixaTexto.Execultar(
                 Diante de você, três caixas misteriosas aguardam sua escolha. Que comece a aventura culinária!
                 """, "Caixa Misteriosa 1", "Caixa Misteriosa 2", "Caixa Misteriosa 3");
 
+
+
+
+
 if (opcao == 0)
 {
     var caixa1 = new CaixaMisteriosa1();
@@ -23,8 +27,15 @@ if (opcao == 0)
         var telaVitoria = new TelaVitoria();
         telaVitoria.Execultar();
     }
-}
+    else
+    {
+        var telaFimJogo = new TelaGamerOver();
+        telaFimJogo.Execultar1();
+    }
+}    
 else
 {
-    throw new NotImplementedException();
+        var telaGamerOver = new TelaGamerOver();
+        telaGamerOver.Execultar1();   
+
 }
