@@ -68,4 +68,19 @@ public partial class CaixaTexto
         Console.Clear();
         return comando;
     }
+    
+    public int Executar(string texto, string imagem, params string[] opcoes)
+    {
+        var tamanhoMolduraHorizontal = Console.WindowWidth - Margem * 2;
+        Console.WriteLine($"{new string(' ', Margem)}{new string(MolduraHorizontal, tamanhoMolduraHorizontal)}{new string(' ', Margem)}");
+        foreach (var linha in imagem.Split('\n'))
+        {
+            var linhaSemEspacos = linha;
+            var tamanho = tamanhoMolduraHorizontal - linhaSemEspacos.Length - 2;
+            var margemInterna = tamanho / 2;
+            Console.WriteLine($"{new string(' ', Margem)}{MolduraVertical}{new string(' ', margemInterna)}{linhaSemEspacos}{new string(' ', margemInterna)}{MolduraVertical}{new string(' ', Margem)}");
+        }
+
+        return Executar(texto, opcoes);
+    }
 }
