@@ -3,6 +3,7 @@ using System.Threading;
 
 namespace CozinheiroRpg.Componentes;
 
+
 public class MenuInicial
 {
     public bool Execultar()

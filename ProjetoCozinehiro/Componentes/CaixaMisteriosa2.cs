@@ -21,7 +21,7 @@ public class CaixaMisteriosa2
                         Em Frankefurt alemanha, o famoso cachorro-quente alemão.
                         Sua missão é criar um tradicional cachorro-quente alemão, para isso escolha os ingredientes base.
                         """, "Pão, salsicha, molho de tomate e ketchup", "Pão de batata, feijoada e laranjada", "Salsicha,molho de tomate e batata-palha", "Frango assado e refrigerante diet,", "Pedir para algum parente cozinhar, já que não temos todos ingredientes", "Salsicha alemã, pão de cachorro de quente,molho de tomate e alho e sal");
-
+          
         switch (opcaoEscolhida)
         {
             case 0:
@@ -84,7 +84,7 @@ public class CaixaMisteriosa2
             {
                 return 0;
             }
-
+          
             reacao = "Ufa! Parece que você conseguiu reverter a situaçao.";
         }
         if (opcaoEscolhida == 3)
