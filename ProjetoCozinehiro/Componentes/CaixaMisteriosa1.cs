@@ -10,12 +10,12 @@ public class CaixaMisteriosa1
         var reacao = "";
         var opcaoEscolhida = txtIngrediente.Executar(
                         """
-                         Olha, Olha, Olha! Sua primeira missão inicia na Itália! Com um prato que serviu de inspiração
-                        para a Pizza tradicional, conseguiu adivinhar qual é? Não? Não se preocupe que eu te conto.
-                        Estamos falando do CALZONE, essa delicia tem origem na região italiana da Apúlia, na zona de
+                         O Calzone serviu de inspiração
+                        para a Pizza tradicional e sua origem tem início na região italiana da Apúlia, na zona de
                         Salento. Sua receita correta é feita com a massa da pizza tradicional.
 
-                        Sua missão é criar um tradicional calzone, para isso escolha os ingredientes base.
+                        Sua missão é derrotar Zezinho Cozinheiro, cozinhando um tradicional calzone!
+                        Escolha com muito cuidado os engredientes base de sua receita, uma escolha errada poderá leva-lo a derrota!
                         """, "Presunto, mussarela e Catupiry", "Calabresa e mussarela", "Calabresa e Catupiry", "Frango e Catupiry");
 
         switch (opcaoEscolhida)
