@@ -42,7 +42,7 @@ public partial class CaixaTexto
         Console.WriteLine($"{new string(' ', Margem)}{new string(MolduraHorizontal, tamanhoMolduraHorizontal)}{new string(' ', Margem)}");
         Console.WriteLine();
         
-        for (int i = 0; i < opcoes.Length; i++)
+        for (var i = 0; i < opcoes.Length; i++)
         {
             Console.WriteLine($"{new string(' ', Margem + 1)}{i}) {opcoes[i]}");
         }
