@@ -89,7 +89,3 @@ else
 {
     var _ = menu.PopUpLista("Durma bem. Amanhã é um novo dia para tentar", Imagens.CAMA, ["Voltar a dormir"]);
 }
-
-
-
-
