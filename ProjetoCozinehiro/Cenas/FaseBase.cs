@@ -1,26 +1,47 @@
-using Common.Core;
+using ProjetoCozinheiro.Componentes;
 
 namespace ProjetoCozinheiro.Cenas;
 
-public class FaseBase
+public abstract class FaseBase
 {
-    public string Descricao { get; protected set; }
-    protected Menu _menu;
-    public int NivelReputacaoExigido { get; private set; }
-    public FaseBase(Menu menu, int nivelReputacaoExigido)
+    public int PontuacaoVitoria { get; set; }
+    public int ReputacaoExigida { get; set; }
+    public int Pontuacao { get; protected set; }
+
+    public string Descricao { get; protected set; } = "";
+
+    public FaseBase(int reputacaoExigida, int pontuacaoVitoria)
     {
-        _menu = menu;
-        NivelReputacaoExigido = nivelReputacaoExigido;
-        Descricao = "Fase base";
+        ReputacaoExigida = reputacaoExigida;
+        PontuacaoVitoria = pontuacaoVitoria;
+        Descricao = "";
     }
 
-    public virtual int Executar()
+    public abstract void Executar();
+    
+    protected virtual void Derrota()
     {
-        return _menu.PopUpLista("Cena base", ["Uma opção"]);
-    }
+        var menu = new Menu<string>("DERROTADO!",
+                        "Você nem chegou perto! kkkkkk",
+                        new Dictionary<string, string>
+                        {
+                                        {"Ir para casa chorar", "continuar"}
+                        }
+        );
 
-    public virtual void Introducao()
+        _ = menu.Mostrar();
+    }
+    
+    protected virtual void Vitoria()
     {
-        var t = _menu.PopUpLista("Introdução", ["sair"]);
+        var menu = new Menu<string>("Julgamento!",
+                        $"Sua nota foi {Pontuacao}! Você mostrou seu valor, parabéns!",
+                        new Dictionary<string, string>
+                        {
+                                        {"Continuar porque sou foda!", "continuar"}
+                        }
+        );
+
+        _ = menu.Mostrar();
     }
 }

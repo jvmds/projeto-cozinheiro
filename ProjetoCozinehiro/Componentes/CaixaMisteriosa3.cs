@@ -1,5 +1,4 @@
-﻿using CozinheiroRpg.Componentes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoCozinheiro.Componentes;
 
+/*
 public class CaixaMisteriosa3
 {
     public class CaixaMisteriosa3
@@ -124,3 +124,4 @@ public class CaixaMisteriosa3
         }
 
 }
+*/

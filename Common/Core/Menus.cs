@@ -14,7 +14,7 @@ public class Menu
         _configuracoes = configuracoes;
     }
     
-    public int PopUpLista(string entrada, params string[] opcoes)
+    public int PopUpLista(string entrada, Dictionary<int, string> opcoes)
     {
         var caracteresPorLinha = ObterTamanhoMaxCaracteresPorLinha(true);
         var textoForm = QuebrarTextoEmPalavras(RemoverQuebrasLinhas(entrada));
@@ -53,9 +53,9 @@ public class Menu
         Console.WriteLine(ObterMolduraHorizontal());
         ImprimirOpcoes(opcoes);
         
-        return ExecultarPrompt(1, opcoes.Length);
+        return ExecultarPrompt(1, opcoes.Count);
     }
-    public int PopUpLista(string entrada, string imagem, params string[] opcoes)
+    public int PopUpLista(string entrada, string imagem, Dictionary<int, string> opcoes)
     {
         Console.WriteLine(ObterMolduraHorizontal());
         foreach (var linha in DividirImagem(imagem))
@@ -107,12 +107,12 @@ public class Menu
                           $"{_configuracoes.Margem}" +
                           $"{ObterMargem()}");
     }
-    private void ImprimirOpcoes(IReadOnlyList<string> opcoes)
+    private void ImprimirOpcoes(IReadOnlyDictionary<int, string> opcoes)
     {
         Console.WriteLine();
-        for (var i = 1; i <= opcoes.Count; i++)
+        foreach (var chave in opcoes)
         {
-            Console.WriteLine($"{new string(' ', _configuracoes.TamanhoMargemExterna + 1)}{i}) {opcoes[i-1]}");
+            Console.WriteLine($"{new string(' ', _configuracoes.TamanhoMargemExterna + 1)}{chave.Key}) {chave.Value}");
         }
     }
     private int ExecultarPrompt(int inicio, int fim, string texto = "Digite o número da opção escolhida: ")
