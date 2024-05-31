@@ -2,7 +2,7 @@ using System.Text;
 
 namespace ProjetoCozinheiro.Componentes;
 
-public class Dificuldade
+public class DificuldadeDigitacao
 {
     private static int A = 65;
     private static int Z = 91;
@@ -11,7 +11,7 @@ public class Dificuldade
     public string Word { get; private set; }
     public int PointsAwarded { get; private set; }
 
-    private Dificuldade(string difficulty, TimeOnly timeLimit, string word, int pointsAwarded)
+    private DificuldadeDigitacao(string difficulty, TimeOnly timeLimit, string word, int pointsAwarded)
     {
         Difficulty = difficulty;
         TimeLimit = timeLimit;
@@ -19,19 +19,19 @@ public class Dificuldade
         PointsAwarded = pointsAwarded;
     }
 
-    public static Dificuldade Facil()
+    public static DificuldadeDigitacao Facil()
     {
-        return new Dificuldade("FÁCIL", new TimeOnly(0, 0, 20), GenerateRandomLetters(10), 5);
+        return new DificuldadeDigitacao("FÁCIL", new TimeOnly(0, 0, 20), GenerateRandomLetters(10), 5);
     }
     
-    public static Dificuldade Medio()
+    public static DificuldadeDigitacao Medio()
     {
-        return new Dificuldade("MÉDIA", new TimeOnly(0, 0, 15), GenerateRandomLetters(12), 10);
+        return new DificuldadeDigitacao("MÉDIA", new TimeOnly(0, 0, 15), GenerateRandomLetters(12), 10);
     }
 
-    public static Dificuldade Dificil()
+    public static DificuldadeDigitacao Dificil()
     {
-        return new Dificuldade("DIFÍCIL", new TimeOnly(0, 0, 10), GenerateRandomLetters(15), 15);
+        return new DificuldadeDigitacao("DIFÍCIL", new TimeOnly(0, 0, 10), GenerateRandomLetters(15), 15);
     }
 
     private static string GenerateRandomLetters(int length)

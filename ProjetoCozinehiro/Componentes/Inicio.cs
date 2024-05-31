@@ -16,7 +16,8 @@ public class Inicio
     
     private List<MiniJogos.MiniJogos> _miniJogos = new()
     {
-                    new MiniJogoTempo()
+                    new MiniJogoDigitacao(),
+                    new MiniJogoCalculo()
     };
 
     public void Iniciar()
@@ -39,7 +40,7 @@ public class Inicio
                 {
                                 OpcoesMenu.MiniJogos => MiniJogos(),
                                 OpcoesMenu.Fases => Fases(),
-                                _ => throw new Exception("Opção não implementada")
+                                _ => throw new NotImplementedException("Opção não implementada")
                 };
             }
         }
