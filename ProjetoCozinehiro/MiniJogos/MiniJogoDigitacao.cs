@@ -12,7 +12,7 @@ public class MiniJogoDigitacao : MiniJogos
                     "U", "V", "X", "Y", "W", "Z",
     };
     
-    public override int Executar(int pontuacaoAtual)
+    public override int Executar(int pontuacaoAtual, bool retentativa = true)
     {
         var resultadoTotal = 0;
         while (true)
@@ -23,7 +23,7 @@ public class MiniJogoDigitacao : MiniJogos
             
             if (resultado <= 0)
             {
-                if (Derrota() == OpcoesMenu.Sair)
+                if (Derrota(retentativa) == OpcoesMenu.Sair)
                 {
                     break;
                 }
@@ -31,7 +31,7 @@ public class MiniJogoDigitacao : MiniJogos
             else
             {
                 resultadoTotal += resultado;
-                if (Vitoria(resultado) == OpcoesMenu.Sair)
+                if (Vitoria(resultado, retentativa) == OpcoesMenu.Sair)
                 {
                     break;
                 }

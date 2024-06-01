@@ -11,6 +11,7 @@ public class Inicio
     {
         new FaseCalzone(50, 80),
         new FaseCachorroQuente(100, 90),
+        new FaseFugu(200, 100),
         new FaseSair()
     };
     
@@ -145,5 +146,5 @@ public class Inicio
 
         return tela.Mostrar();
     }
-
+    
 }

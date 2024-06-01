@@ -10,5 +10,11 @@
     <ItemGroup>
       <PackageReference Include="Terminal.Gui" Version="1.16.0" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Ativos\musica.wav">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
     
 </Project>

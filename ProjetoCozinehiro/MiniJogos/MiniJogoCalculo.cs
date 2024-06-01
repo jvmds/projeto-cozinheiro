@@ -6,7 +6,7 @@ public class MiniJogoCalculo : MiniJogos
 {
     private TimeOnly _tempoRestante = TimeOnly.FromDateTime(DateTime.Now);
     private readonly List<char> _caracteresValidos = new() { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-    public override int Executar(int pontuacaoAtual)
+    public override int Executar(int pontuacaoAtual, bool retentativa = true)
     {
         var resultadoTotal = 0;
         while (true)

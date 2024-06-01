@@ -8,7 +8,7 @@ public abstract class MiniJogos
     public int MargemInterna { get; set; } = 2;
     public char Moldura { get; set; } = '*';
     
-    public abstract int Executar(int pontuacaoAtual);
+    public abstract int Executar(int pontuacaoAtual, bool retentativa = true);
     
     protected string FormatarSeparadores()
     {
@@ -40,32 +40,42 @@ public abstract class MiniJogos
         return $"{Moldura}{espacos}{texto}{new string(' ', espacosDireita)}{Moldura}";
     }
     
-    protected virtual OpcoesMenu Derrota()
+    protected virtual OpcoesMenu Derrota(bool retentativa = true)
     {
+
+        var opcoes = new Dictionary<string, OpcoesMenu>
+        { 
+                        { "Voltar para casa", OpcoesMenu.Sair }
+        };
+        
+        if (retentativa)
+        {
+            opcoes["Mais uma vez, agora vai!"] = OpcoesMenu.Sim;
+        }
+        
         Console.Clear();
         var menu = new Menu<OpcoesMenu>("NÃO FOI DESSA VEZ!",
-                        "Nao deu. O quer fazer?",
-                        new Dictionary<string, OpcoesMenu>
-                        {
-                                        {"Mais uma vez, agora vai!", OpcoesMenu.Sim},
-                                        {"Voltar para casa", OpcoesMenu.Sair}
-                        }
-        );
+                        "Nao deu. O quer fazer?", opcoes);
 
         return menu.Mostrar();
     }
     
-    protected virtual OpcoesMenu Vitoria(int pontuacao)
+    protected virtual OpcoesMenu Vitoria(int pontuacao, bool retentativa = true)
     {
+        var opcoes = new Dictionary<string, OpcoesMenu>
+        {
+                        { "Voltar para casa", OpcoesMenu.Sair }
+        };
+
+        if (retentativa)
+        {
+            opcoes["Ir novamente"] = OpcoesMenu.Sim;
+        }
+        
         Console.Clear();
         var menu = new Menu<OpcoesMenu>("DEU BOM!",
-                        $"Acaba de subir {pontuacao} pontos em sua reputação, o quer fazer?",
-                        new Dictionary<string, OpcoesMenu>
-                        {
-                                        {"Ir novamente", OpcoesMenu.Sim},
-                                        {"Voltar para casa", OpcoesMenu.Sair}
-                        }
-        );
+                        $"Acaba de subir {pontuacao} pontos em sua reputação, o quer fazer?", opcoes
+                        );
 
         return menu.Mostrar();
     }
