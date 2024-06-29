@@ -21,17 +21,17 @@ public class DificuldadeDigitacao
 
     public static DificuldadeDigitacao Facil()
     {
-        return new DificuldadeDigitacao("FÁCIL", new TimeOnly(0, 0, 20), GenerateRandomLetters(10), 5);
+        return new DificuldadeDigitacao("FÁCIL", new TimeOnly(0, 0, 30), GenerateRandomLetters(10), 5);
     }
     
     public static DificuldadeDigitacao Medio()
     {
-        return new DificuldadeDigitacao("MÉDIA", new TimeOnly(0, 0, 15), GenerateRandomLetters(12), 10);
+        return new DificuldadeDigitacao("MÉDIA", new TimeOnly(0, 0, 20), GenerateRandomLetters(12), 10);
     }
 
     public static DificuldadeDigitacao Dificil()
     {
-        return new DificuldadeDigitacao("DIFÍCIL", new TimeOnly(0, 0, 10), GenerateRandomLetters(15), 15);
+        return new DificuldadeDigitacao("DIFÍCIL", new TimeOnly(0, 0, 15), GenerateRandomLetters(15), 15);
     }
 
     private static string GenerateRandomLetters(int length)

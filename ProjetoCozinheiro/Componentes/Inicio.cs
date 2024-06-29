@@ -3,6 +3,9 @@ using ProjetoCozinheiro.MiniJogos;
 
 namespace ProjetoCozinheiro.Componentes;
 
+/// <summary>
+/// Classe principal do jogo.
+/// </summary>
 public class Inicio
 {
     private Jogador _jogador = new();
@@ -18,7 +21,7 @@ public class Inicio
     private List<MiniJogos.MiniJogos> _miniJogos = new()
     {
                     new MiniJogoDigitacao(),
-                    new MiniJogoCalculo()
+                    //new MiniJogoCalculo()
     };
 
     public void Iniciar()
@@ -36,7 +39,8 @@ public class Inicio
                 {
                     break;
                 }
-                
+
+               //_jogador.Reputacao = 400;
                 _jogador.Reputacao += escolha switch
                 {
                                 OpcoesMenu.MiniJogos => MiniJogos(),
@@ -63,7 +67,7 @@ public class Inicio
 
     private OpcoesMenu Introducao()
     {
-        var tela = new Menu<OpcoesMenu>($"Reputação: {_jogador.Reputacao}",
+        var tela = new Menu<OpcoesMenu>($"REPUTAÇÃO: {_jogador.Reputacao}",
                         $"{Imagens.CHEF} \n" + 
                             "Você é um chefe de cozinha em crescimento que pretende viajar o mundo e enfrentar os " + 
                             "melhores cozinheiros e assim se tornar o maior cozinheiro do mundo!", 

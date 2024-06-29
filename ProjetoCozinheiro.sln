@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoCozinheiro", "ProjetoCozinehiro\ProjetoCozinheiro.csproj", "{2B8D8567-1C03-4EAE-9678-F191338C93BD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoCozinheiro", "ProjetoCozinheiro\ProjetoCozinheiro.csproj", "{2B8D8567-1C03-4EAE-9678-F191338C93BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
