@@ -15,6 +15,7 @@
       <None Update="Ativos\musica.wav">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Remove="icone.png" />
     </ItemGroup>
     
 </Project>
